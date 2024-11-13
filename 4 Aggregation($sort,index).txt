@@ -9,24 +9,24 @@ db.student.insertMany([
 
 db.student.aggregate([
   { $match: { Subject: "DS" } },  // Filter for DS subject
-  { $group: { _id: "$Address", maxMarks: { $max: "$Marks" } } }  // Group by Address and find max Marks
+  { $group: { _id: "$Address", maxMarks: { $max: "$Marks" } } } 
 ]);
 
 db.student.aggregate([
-  { $group: { _id: null, avgMarks: { $avg: "$Marks" } } }  // Calculate average of Marks field
+  { $group: { _id: null, avgMarks: { $avg: "$Marks" } } }  
 ]);
 
 db.student.aggregate([
-  { $group: { _id: "$Div", students: { $push: "$Name" } } }  // Group by Div and collect Names in an array
+  { $group: { _id: "$Div", students: { $push: "$Name" } } }  
 ]);
 
-db.student.createIndex({ Name: 1 });  // 1 for ascending order index
+db.student.createIndex({ Name: 1 });  
 db.student.createIndex({ Name: 1, Class: 1 });
 
-db.student.dropIndex("Name_1");  // "Name_1" is the default name given to the index { Name: 1 }
+db.student.dropIndex("Name_1"); 
 
 db.student.aggregate([
-  { $match: { Div: "A" } },  // Filter to include only Division A students
-  { $group: { _id: "$Subject", topMarks: { $max: "$Marks" }, topStudents: { $push: "$Name" } } },  // Group by Subject, find max Marks, and collect Names
-  { $sort: { topMarks: -1 } }  // Sort in descending order of topMarks
+  { $match: { Div: "A" } },  
+  { $group: { _id: "$Subject", topMarks: { $max: "$Marks" }, topStudents: { $push: "$Name" } } },  
+  { $sort: { topMarks: -1 } } 
 ]);
