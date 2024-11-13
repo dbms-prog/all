@@ -10,9 +10,9 @@ db.City.insertMany([
 
 const mapFunction = function() {
   if (this.population > 1000000) {
-    emit("HIGHLY POPULATED", 1);  // For cities with population > 10 lakhs
+    emit("HIGHLY POPULATED", 1);  
   } else {
-    emit("LOW POPULATED", 1);      // For cities with population <= 10 lakhs
+    emit("LOW POPULATED", 1);      
   }
 };
 
