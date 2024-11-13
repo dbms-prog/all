@@ -62,5 +62,5 @@ JOIN dept d ON e.deptno = d.deptno
 WHERE d.deptname = 'Dev';
 
 UPDATE Emp
-SET salary = salary * 1.05
+SET salary = salary * 0.05
 WHERE deptno = 10;
