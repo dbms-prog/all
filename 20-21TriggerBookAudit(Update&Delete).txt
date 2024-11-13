@@ -1,4 +1,4 @@
--- Change delimiter to avoid conflicts with `;` inside the trigger
+
 DELIMITER //
 
 CREATE TRIGGER Before_Update_Library
@@ -19,18 +19,18 @@ BEGIN
 END;
 //
 
--- Reset the delimiter back to default
+
 DELIMITER ;
 
--- Sample data insertion
-INSERT INTO Library (BookID, Title, Author, PublishedYear, Quantity) 
-VALUES (1, 'SQL Fundamentals', 'John Doe', 2021, 5);
 
--- Update an existing record
+INSERT INTO Library (BookID, Title, Author, PublishedYear, Quantity) 
+VALUES (1, 'SQL Fundamentals', 'paras jagdale', 2021, 5);
+
+
 UPDATE Library 
 SET Quantity = 10 
 WHERE BookID = 1;
 
--- Delete a record
+
 DELETE FROM Library 
 WHERE BookID = 1;
